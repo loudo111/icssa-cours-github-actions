@@ -1,26 +1,26 @@
 export default class Pencil {
   constructor(durability = 50, length = 50, eraserDurability) {
-    this.durability = durability
+    this.durability = durability;
     this.maxDurability = durability;
     this.length = length;
-    this.eraserDurability = eraserDurability
+    this.eraserDurability = eraserDurability;
   }
 
   getPencilDurability() {
     return durability;
   }
-
   getPencilLength() {
-    return this.length
+    return this.length;
   }
-
   getEraserDurability() {
     return this.eraserDurability;
   }
 
   updatePencilDurability(character) {
     if (character !== " ") {
-      character === character.toLowerCase() ? this.durability -= 1 : this.durability -= 2;
+      character === character.toLowerCase()
+        ? (this.durability -= 1)
+        : (this.durability -= 2);
     }
   }
 
@@ -31,7 +31,7 @@ export default class Pencil {
   writeOnPaper(paper, textToWrite) {
     for (let i = 0; i < textToWrite.length; i++) {
       this.updatePencilDurability(textToWrite.charAt(i));
-      this.durability >= 0 ? paper += textToWrite.charAt(i) : paper += " ";
+      this.durability >= 0 ? (paper += textToWrite.charAt(i)) : (paper += " ");
     }
 
     return paper;
@@ -49,7 +49,7 @@ export default class Pencil {
       return;
     }
 
-    var charactersOnPaper = paper.split('');
+    var charactersOnPaper = paper.split("");
     const indexOfWord = paper.lastIndexOf(text) + text.length - 1;
 
     for (let i = 0; i < text.length; i++) {
@@ -59,7 +59,7 @@ export default class Pencil {
       charactersOnPaper[indexOfWord - i] = " ";
     }
 
-    return charactersOnPaper.join('');
+    return charactersOnPaper.join("");
   }
 
   edit(paper, textToAdd) {
@@ -67,7 +67,7 @@ export default class Pencil {
       return;
     }
 
-    const charactersOnPaper = paper.split('');
+    const charactersOnPaper = paper.split("");
     const indexOfBlankSpace = paper.indexOf("  ") + 1;
 
     for (let i = 0; i < textToAdd.length; i++) {
@@ -78,6 +78,6 @@ export default class Pencil {
       }
     }
 
-    return charactersOnPaper.join('');
+    return charactersOnPaper.join("");
   }
-};
+}
