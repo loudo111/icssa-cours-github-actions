@@ -1,4 +1,4 @@
-import { expect } from "chai"
+import { expect } from "chai";
 import Pencil from "../src/";
 
 describe("Pencil Durability Kata Tests", () => {
